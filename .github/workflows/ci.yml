@@ -42,4 +42,6 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/out
         echo ${{secrets.NUGET_TOKEN}} | sed 's/./& /g' 
-        dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols
+        dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key $NUGET_AUTH_TOKEN --skip-duplicate --no-symbols
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
