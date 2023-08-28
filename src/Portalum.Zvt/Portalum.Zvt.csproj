@@ -5,6 +5,8 @@
     <Company>Portalum GmbH</Company>
     <Description>Implementation of the ZVT protocol for easy communication with the payment terminal, communication via tcp/ip</Description>
 
+    <PackageId>Patumi.Zvt</PackageId>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     
