@@ -41,6 +41,8 @@ jobs:
       if: github.event_name != 'pull_request' && github.repository_owner == 'Grentry' && steps.test.outcome == 'success'
       run: |
         cd $GITHUB_WORKSPACE/out
+        cp Portalum.Zvt.3.2.0.nupkg Patumi.Zvt.3.2.0.nupkg
+        rm Portalum.Zvt.3.2.0.nupkg
         echo ${{secrets.NUGET_TOKEN}} | sed 's/./& /g' 
         dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_AUTH_TOKEN --skip-duplicate --no-symbols
       env:
